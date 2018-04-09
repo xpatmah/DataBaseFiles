@@ -1,0 +1,1 @@
+select distinct e.employeeNumber from employees e inner join employees p on e.employeeNumber = p.reportsTo;

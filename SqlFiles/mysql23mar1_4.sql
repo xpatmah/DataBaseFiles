@@ -1,0 +1,1 @@
+select *  , count(*) as count_emp from EmployeeDetails Group by EmployeeDetails.EmpId , EmployeeDetails.FullName ,EmployeeDetails.ManagerId , EmployeeDetails.DateOfJoining having count_emp > 1;

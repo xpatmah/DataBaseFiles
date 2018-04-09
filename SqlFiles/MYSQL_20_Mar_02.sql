@@ -1,0 +1,1 @@
+select * from EmployeeDetails where EmpId in (select EmpId from EmployeeSalary JOIN (select Project ,Max(salary) as sal from EmployeeSalary group by project) as e1 on e1.project= EmployeeSalary.Project and e1.sal=EmployeeSalary.salary);

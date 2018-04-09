@@ -1,0 +1,1 @@
+select * from EmployeeDetails where EmployeeDetails.EmpId in (select EmployeeSalary.EmpId From EmployeeSalary);

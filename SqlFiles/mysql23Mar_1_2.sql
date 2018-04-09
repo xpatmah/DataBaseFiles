@@ -1,0 +1,1 @@
+select EmployeeSalary.Project as Project , count(*) as EmpCount from EmployeeSalary Group by EmployeeSalary.Project Order by EmpCount DESC;

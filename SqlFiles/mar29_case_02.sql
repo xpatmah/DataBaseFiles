@@ -1,0 +1,1 @@
+select case Department when 'Banking' then 'Bank_dept' when 'Insurance' then 'Insurance' when 'Services' then 'service_Dept' end From Employee;

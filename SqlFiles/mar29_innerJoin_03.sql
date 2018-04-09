@@ -1,0 +1,1 @@
+select Employee.First_name , Employee.Last_name , I.Incentive_amount from Employee inner join (select Incentive.Employee_ref_id , sum(Incentive.Incentive_amount) Incentive_amount from Incentive group by Incentive.Employee_ref_id) I  on Employee.Employee_id = I.Employee_ref_id and I.Incentive_amount > 3000 ;

@@ -1,0 +1,1 @@
+select * from Employee where exists ( select * from Incentive where Employee.Employee_id = Incentive.Employee_ref_id);

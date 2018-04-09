@@ -1,0 +1,1 @@
+select count(*) counts from employees group by employeeNumber having counts > 1;

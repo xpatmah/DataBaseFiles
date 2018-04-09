@@ -1,0 +1,1 @@
+Select EmployeeDetails.FullName , EmployeeSalary.Salary From EmployeeDetails LEFT JOIN EmployeeSalary on EmployeeDetails.EmpId = EmployeeSalary.EmpId;

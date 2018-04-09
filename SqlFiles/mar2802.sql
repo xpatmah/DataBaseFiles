@@ -1,0 +1,2 @@
+select sum(Employee.Salary) total_salary , Employee.Department from Employee group by Employee.Department;
+select count(*) ,sum(Employee.Salary) total_salary , Employee.Department from Employee group by Employee.Department order by total_salary desc;

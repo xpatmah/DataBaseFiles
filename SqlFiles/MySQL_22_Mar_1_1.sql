@@ -1,0 +1,1 @@
+select * From EmployeeDetails where EmployeeDetails.EmpId in( select EmployeeSalary.empid from EmployeeSalary where EmployeeSalary.salary between 5000 and 10000);

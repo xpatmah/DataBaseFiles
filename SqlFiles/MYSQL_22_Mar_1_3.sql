@@ -1,0 +1,1 @@
+SELECT substring(FullName, 1, LOCATE(' ',FullName)) FROM EmployeeDetails;

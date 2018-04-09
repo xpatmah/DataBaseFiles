@@ -1,0 +1,1 @@
+select E1.FullName , E1.DateOfJoining from EmployeeDetails as E1 JOIN EmployeeDetails E2 on E1.EmpId = E2.ManagerId; 
