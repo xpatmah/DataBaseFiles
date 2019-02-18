@@ -53,3 +53,18 @@ end loop;
 close localCursor;
 end;
 ======================================================
+--cursor for loop
+==============================================
+declare 
+cursor localCursor(numofRows number default 5) is (
+select employee_id , department_name , ROW_NUMBER() OVER (PARTITION BY emp.department_id order by salary) rown from Employees emp join departments d on emp.department_id = d.department_id
+where rownum < numofRows
+);
+--cursoronlocalCursor localCursor%rowtype;
+l_depatment_id number;
+begin
+  for curs in localCursor(100) loop
+  dbms_output.put_line(curs.employee_id ||'  '||curs.department_name  ||'  '|| curs.rown);
+  end loop;
+end;
+=================================================
