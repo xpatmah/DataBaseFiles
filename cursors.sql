@@ -90,3 +90,18 @@ begin
   end loop;
 end;
 ============================================================================
+--ref cursors
+============================================================================
+declare 
+Type refcursor is ref cursor return departments%rowtype; 
+rc_dept_cur refcursor;
+rowType_l_department_id  departments%rowtype;
+begin
+
+open rc_dept_cur for select * from departments;
+loop
+  fetch rc_dept_cur into rowType_l_department_id;
+  exit when rc_dept_cur%notfound;
+  dbms_output.put_line(rowType_l_department_id.department_name);
+end loop;  
+end;
