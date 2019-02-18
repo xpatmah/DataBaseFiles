@@ -67,4 +67,26 @@ begin
   dbms_output.put_line(curs.employee_id ||'  '||curs.department_name  ||'  '|| curs.rown);
   end loop;
 end;
+==================================================
+--Nested Cursor
 =================================================
+declare 
+cursor localCursor(numofRows number default 5) is (
+select employee_id , department_name,emp.department_id , ROW_NUMBER() OVER (PARTITION BY emp.department_id order by salary) rown from Employees emp join departments d on emp.department_id = d.department_id
+where rownum < numofRows
+);
+
+cursor departmentNo (departmentid number) is(
+  select department_name from departments where department_id = departmentid
+);
+--cursoronlocalCursor localCursor%rowtype;
+l_depatment_id number;
+begin
+  for curs in localCursor(100) loop
+     dbms_output.put_line(curs.employee_id ||'  '||'  '|| curs.rown);
+     for cur in departmentNo(curs.department_id) loop
+        dbms_output.put_line('  '||cur.department_name  );
+     end loop;
+  end loop;
+end;
+============================================================================
